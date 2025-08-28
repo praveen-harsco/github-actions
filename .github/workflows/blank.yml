@@ -1,17 +1,17 @@
 name: Test Project
 on: push
 jobs:
-  test:
+  deploy_dev:
     runs-on: ubuntu-latest
-    steps:  
-      - name: Get code
-        uses: actions/checout@v3
-      - name: Install nodejs
-        uses: actions/setup-node@v3
-        with:
-          node-version : 18
-      - name : Install dependencies
-        run : npm ci
-      - name: Run tests
-        run : npm test
+    environment: dev # This job will use variables/secrets from the 'dev' environment
+    steps:
+      - name: Deploy to Dev
+        run: echo "Deploying to dev environment with ${{ vars.API_ENDPOINT_DEV }}"
+
+  deploy_prod:
+    runs-on: ubuntu-latest
+    environment: prod # This job will use variables/secrets from the 'prod' environment
+    steps:
+      - name: Deploy to Prod
+        run: echo "Deploying to prod environment with ${{ secrets.DB_PASSWORD_PROD }}"
           
