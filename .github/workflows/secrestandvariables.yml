@@ -24,7 +24,17 @@ jobs:
 
       - name: Use Variables
         run: 'echo "Variables : ${{ vars.ENVIRONMENT}}"'
+        
+    environment : prod
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
+      - name: Use secret
+        run: 'echo "Secret value: ${{ secrets.S_Test }}"'
+
+      - name: Use Variables
+        run: 'echo "Variables : ${{ vars.ENVIRONMENT}}"'
       
    
         
