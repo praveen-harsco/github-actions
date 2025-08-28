@@ -20,8 +20,7 @@ jobs:
       - name: Use secret
         run: 'echo "Secret value: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}"'
 
-      - name: Use variable
-        run:' echo "Environment variable: ${{ vars.ENVIRONMENT }}"'
+      
    
         
       
