@@ -1,0 +1,11 @@
+name: Main Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  call-angular-build:
+    uses: ./.github/workflows/build.yml   # 👈 calling reusable workflow
+    with:
+      environment: production
